@@ -213,15 +213,15 @@ function receiptPrintHtml(items) {
 .rc-val{font-weight:700;font-size:calc(25 * var(--u))}
 .rc-number{right:calc(54 * var(--u));top:calc(294 * var(--u))}
 .rc-date{right:calc(41 * var(--u));top:calc(361 * var(--u))}
-.rc-label{right:calc(34 * var(--u));width:calc(190 * var(--u));text-align:right;font-size:calc(36 * var(--u));line-height:calc(44 * var(--u));white-space:nowrap}
-.rc-l1{top:calc(420 * var(--u))}
-.rc-l2{right:calc(16 * var(--u));top:calc(499 * var(--u))}
-.rc-l3{right:calc(36 * var(--u));top:calc(564 * var(--u))}
+.rc-label{right:calc(34 * var(--u));width:calc(190 * var(--u));text-align:right;font-size:calc(32 * var(--u));line-height:calc(44 * var(--u));white-space:nowrap}
+.rc-l1{top:calc(425 * var(--u))}
+.rc-l2{right:calc(12 * var(--u));top:calc(495 * var(--u))}
+.rc-l3{right:calc(32 * var(--u));top:calc(560 * var(--u))}
 .rc-dots{border-top:calc(4 * var(--u)) dotted #111;height:0}
-.rc-d1{left:calc(95 * var(--u));width:calc(905 * var(--u));top:calc(458 * var(--u))}
+.rc-d1{left:calc(100 * var(--u));width:calc(875 * var(--u));top:calc(458 * var(--u))}
 .rc-d2{left:calc(100 * var(--u));width:calc(875 * var(--u));top:calc(527 * var(--u))}
-.rc-d3{left:calc(97 * var(--u));width:calc(913 * var(--u));top:calc(592 * var(--u))}
-.rc-d4{left:calc(93 * var(--u));width:calc(1065 * var(--u));top:calc(663 * var(--u))}
+.rc-d3{left:calc(100 * var(--u));width:calc(875 * var(--u));top:calc(592 * var(--u))}
+.rc-d4{left:calc(100 * var(--u));width:calc(1065 * var(--u));top:calc(663 * var(--u))}
 .rc-value{right:calc(204 * var(--u));left:calc(100 * var(--u));text-align:right;font-weight:700;line-height:calc(30 * var(--u));white-space:nowrap;overflow:hidden}
 .rc-v1{top:calc(425 * var(--u))}
 .rc-v2{top:calc(494 * var(--u))}
