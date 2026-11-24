@@ -210,7 +210,7 @@ function receiptPrintHtml(items) {
 .rc-project{left:auto;right:calc(34 * var(--u));top:calc(212 * var(--u));width:calc(600 * var(--u));text-align:right;font-size:calc(38 * var(--u));font-weight:700;line-height:calc(52 * var(--u));color:#0d1f35;white-space:nowrap}
 .rc-field{width:calc(400 * var(--u));text-align:right;font-size:calc(26 * var(--u));line-height:calc(40 * var(--u));white-space:nowrap}
 .rc-lbl{font-weight:400}
-.rc-val{font-weight:700;font-size:calc(25 * var(--u))}
+.rc-val{font-weight:700;font-size:calc(30 * var(--u))}
 .rc-number{right:calc(54 * var(--u));top:calc(294 * var(--u))}
 .rc-date{right:calc(41 * var(--u));top:calc(361 * var(--u))}
 .rc-label{right:calc(34 * var(--u));width:calc(190 * var(--u));text-align:right;font-size:calc(32 * var(--u));line-height:calc(44 * var(--u));white-space:nowrap}
@@ -218,8 +218,8 @@ function receiptPrintHtml(items) {
 .rc-l2{right:calc(16 * var(--u));top:calc(490 * var(--u))}
 .rc-l3{right:calc(36 * var(--u));top:calc(560 * var(--u))}
 .rc-dots{border-top:calc(4 * var(--u)) dotted #111;height:0}
-.rc-d1{left:calc(100 * var(--u));width:calc(875 * var(--u));top:calc(470 * var(--u))}
-.rc-d2{left:calc(100 * var(--u));width:calc(875 * var(--u));top:calc(527 * var(--u))}
+.rc-d1{left:calc(100 * var(--u));width:calc(875 * var(--u));top:calc(440 * var(--u))}
+.rc-d2{left:calc(100 * var(--u));width:calc(875 * var(--u));top:calc(500 * var(--u))}
 .rc-d3{left:calc(100 * var(--u));width:calc(875 * var(--u));top:calc(592 * var(--u))}
 .rc-d4{left:calc(100 * var(--u));width:calc(1065 * var(--u));top:calc(663 * var(--u))}
 .rc-value{right:calc(204 * var(--u));left:calc(100 * var(--u));text-align:right;font-weight:700;line-height:calc(30 * var(--u));white-space:nowrap;overflow:hidden}
