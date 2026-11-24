@@ -1,0 +1,11 @@
+{
+  "name": "shareen",
+  "main": "worker.js",
+  "account_id": "70312bc1951a8271b9b48f19db6a626f",
+  "compatibility_date": "2025-01-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  }
+}

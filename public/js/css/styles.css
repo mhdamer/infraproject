@@ -1,0 +1,418 @@
+/* ==========================================================================
+   styles.css — أنماط مخصّصة فوق Tailwind لمشروع مجمع الفرح السكني
+   v4.7: إعادة جميع أشرطة التمرير (Scrollbars) وإلغاء تجميد الصفحة.
+   ========================================================================== */
+
+/* ----- Tokens: constants that must NOT flip with the theme ----- */
+:root {
+  --c-i1: 248 250 252;
+  --c-i2: 226 232 240;
+  --c-i3: 241 245 249;
+  --c-i4: 248 250 252;
+  --c-i5: 203 213 225;
+  --c-i6: 203 213 225;
+  --on-accent: 255 255 255;          /* text on emerald buttons, always white */
+  --sticky-shadow: rgb(var(--c-slate-950) / 0.4);
+}
+[data-mode="light"] { --sticky-shadow: rgb(var(--c-slate-950) / 0.08); }
+
+/* ----- أساسيات ----- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: rgb(var(--c-slate-900));
+  color: rgb(var(--c-slate-100));
+  font-family: 'Cairo', sans-serif;
+  transition: background-color .3s ease, color .3s ease;
+  overflow-x: hidden; /* no horizontal page scroll on mobile */
+  -webkit-tap-highlight-color: transparent;
+}
+
+button, input, select, textarea { font: inherit; }
+
+/* ==========================================================================
+   شريط التمرير (Scrollbar) - مرئي وواضح في كل مكان
+   ========================================================================== */
+
+/* Firefox */
+html, body, * {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--c-slate-600)) rgb(var(--c-slate-950));
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--c-slate-950));
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(var(--c-slate-600));
+  border-radius: 8px;
+  border: 2px solid rgb(var(--c-slate-950));
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(var(--c-emerald-500));
+}
+
+/* ----- تحديد النص ----- */
+::selection,
+::-moz-selection {
+  background-color: rgb(var(--c-emerald-500) / 0.4);
+  color: rgb(var(--c-slate-100));
+}
+
+/* ----- Focus ----- */
+:is(button, input, select, textarea):focus-visible {
+  outline: 2px solid rgb(var(--c-emerald-500));
+  outline-offset: 2px;
+}
+
+/* ----- الجداول ----- */
+table :is(th, td) {
+  border-bottom: 1px solid rgb(var(--c-slate-700) / 0.6);
+}
+table td { line-height: 1.6; }
+
+/* ----- Toast ----- */
+.toast { animation: slideUp .3s cubic-bezier(0.16, 1, 0.3, 1); }
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ----- التبويب النشط ----- */
+.tab-active {
+  background: linear-gradient(to right, rgb(var(--c-emerald-600)), rgb(var(--c-emerald-500))) !important;
+  color: rgb(var(--on-accent)) !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 12px rgb(var(--c-emerald-900) / 0.3) !important;
+}
+
+/* ----- الوضع النهاري ----- */
+[data-mode="light"] .text-white { color: rgb(var(--c-slate-100)); }
+[data-mode="light"] .hover\:text-white:hover { color: rgb(var(--c-slate-100)); }
+[data-mode="light"] .bg-emerald-600.bg-emerald-600 { color: rgb(var(--on-accent)); }
+[data-mode="light"] .shadow-xl { box-shadow: 0 4px 20px rgb(var(--c-slate-950) / 0.05); }
+
+/* ----- أزرار اختيار الثيم ----- */
+.theme-swatch {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  transition: transform .2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+}
+.theme-swatch:hover { transform: scale(1.2); }
+.theme-swatch[aria-pressed="true"] {
+  border-color: rgb(var(--c-slate-100));
+  box-shadow: 0 0 0 2px rgb(var(--c-slate-950));
+}
+
+/* ----- اسم المستخدم ----- */
+#userChipName { color: rgb(var(--c-slate-100)); }
+
+/* ==========================================================================
+   Skeleton Loading
+   ========================================================================== */
+@keyframes skeleton-shimmer {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}
+
+.skeleton-bar {
+  height: 0.85rem;
+  width: 100%;
+  min-width: 2.5rem;
+  border-radius: 0.375rem;
+  background: linear-gradient(
+    90deg,
+    rgb(var(--c-slate-800)) 25%,
+    rgb(var(--c-slate-700)) 50%,
+    rgb(var(--c-slate-800)) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s linear infinite;
+}
+
+.skeleton-row td { padding: 1rem 0.75rem; }
+.skeleton-row:nth-child(2) .skeleton-bar { width: 85%; }
+.skeleton-row:nth-child(3) .skeleton-bar { width: 70%; }
+.skeleton-row:nth-child(4) .skeleton-bar { width: 92%; }
+.skeleton-row:nth-child(5) .skeleton-bar { width: 65%; }
+
+/* ==========================================================================
+   Mobile & table layout
+   ========================================================================== */
+
+#dataTable :is(th, td).sticky.right-0 { box-shadow: -4px 0 6px -2px var(--sticky-shadow); }
+#dataTable :is(th, td).sticky.left-0  { box-shadow:  4px 0 6px -2px var(--sticky-shadow); }
+
+#tableWrap {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+#dataTable {
+  min-width: 100%;
+  width: max-content;
+}
+#dataTable :is(th, td) { white-space: nowrap; }
+
+/* إعدادات أبعاد النوافذ المنبثقة */
+:is(#addModal, #settingsModal, #concreteModal, #storeModal, #areaTableModal, #aiModal, #listsAddModal) > div {
+  max-height: 92dvh;
+  margin: 10px;
+}
+
+/* ===== 1. Portrait ===== */
+@media (max-width: 768px) {
+  #genericCard .grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
+
+  #dataTable { font-size: clamp(0.72rem, 0.66rem + 0.3vw, 0.82rem); }
+  #dataTable :is(th, td) { padding: 0.5rem 0.4rem !important; }
+
+  #dataTable :is(th, td).sticky.right-0 {
+    min-width: 120px;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #dataTable :is(th, td).sticky.left-0 {
+    min-width: 70px;
+    max-width: 70px;
+    padding: 0.5rem 0.2rem !important;
+  }
+
+  #dataTable :is(th, td).sticky.left-0 button:not(.icon-btn) {
+    padding: 0.2rem 0.4rem !important;
+    font-size: clamp(0.6rem, 0.55rem + 0.25vw, 0.7rem);
+  }
+
+  #genericCard .flex-wrap { justify-content: stretch; }
+  #genericCard .flex-wrap :is(button, label) {
+    flex: 1 1 45%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  #sidebar { width: 85vw; max-width: 320px; }
+  .icon-btn { width: 1.75rem; height: 1.75rem; }
+}
+
+/* ===== 2. Landscape ===== */
+@media (max-height: 500px) and (orientation: landscape) {
+  header {
+    padding-block: 0.5rem !important;
+  }
+  #mainMetrics { display: none !important; }
+  #dataTable { font-size: clamp(0.65rem, 0.6rem + 0.25vw, 0.75rem); }
+  #dataTable :is(th, td) { padding: 0.3rem !important; }
+  #genericCard .grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* ==========================================================================
+   طبقة الفخامة (Premium layer)
+   ========================================================================== */
+#tableBody > tr { transition: background-color .3s ease; }
+#tableBody > tr:nth-child(even) { background-color: rgb(var(--c-slate-900) / 0.4); }
+#tableBody > tr:hover { background-color: rgb(var(--c-emerald-500) / 0.08); }
+
+#dataTable :is(th, td).sticky {
+  background-color: rgb(var(--c-slate-900) / 0.92);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+#tableBody > tr:nth-child(even) > td.sticky { background-color: rgb(var(--c-slate-800) / 0.92); }
+#tableBody > tr:hover > td.sticky { background-color: rgb(var(--c-emerald-900) / 0.9); }
+
+/* Spreadsheet-like sheets view */
+#tableWrap.spreadsheet-grid {
+  border-color: #c9ced6 !important;
+  border-radius: 0.25rem !important;
+  background: #fff !important;
+  box-shadow: 0 1px 2px rgb(60 64 67 / 0.18);
+}
+#tableWrap.spreadsheet-grid #dataTable {
+  background: #fff;
+  color: #202124;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: Arial, 'Cairo', sans-serif;
+  font-size: 13px;
+}
+#tableWrap.spreadsheet-grid #dataTable :is(th, td) {
+  border-right: 1px solid #dadce0 !important;
+  border-bottom: 1px solid #dadce0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+#tableWrap.spreadsheet-grid #tableHead .sheet-letters-row {
+  position: sticky;
+  top: 0;
+  z-index: 24;
+}
+#tableWrap.spreadsheet-grid #tableHead .sheet-column-letter,
+#tableWrap.spreadsheet-grid #tableHead .sheet-row-corner {
+  min-width: 42px;
+  height: 26px;
+  padding: 2px 8px !important;
+  background: #f1f3f4 !important;
+  color: #5f6368 !important;
+  border-top: 0 !important;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+}
+#tableWrap.spreadsheet-grid #tableHead .sheet-row-corner {
+  position: sticky;
+  right: 0;
+  z-index: 27;
+  min-width: 46px;
+  width: 46px;
+}
+#tableWrap.spreadsheet-grid #tableHead > tr:last-child > th:not(.sheet-row-corner) {
+  position: sticky;
+  top: 26px;
+  z-index: 22;
+  padding: 7px 10px !important;
+  background: #f8f9fa !important;
+  color: #202124 !important;
+  border-top: 1px solid #dadce0 !important;
+  font-size: 12px;
+  font-weight: 600;
+}
+#tableWrap.spreadsheet-grid #tableHead > tr:last-child > th:not(.sheet-row-corner) button {
+  color: #202124 !important;
+}
+#tableWrap.spreadsheet-grid #tableBody > tr { background: #fff !important; }
+#tableWrap.spreadsheet-grid #tableBody > tr:hover { background: #e8f0fe !important; }
+#tableWrap.spreadsheet-grid #tableBody > tr > td {
+  height: 32px;
+  padding: 5px 9px !important;
+  background: #fff !important;
+  color: #202124 !important;
+  text-align: right;
+  font-weight: 400;
+}
+#tableWrap.spreadsheet-grid #tableBody > tr:hover > td { background: #e8f0fe !important; }
+#tableWrap.spreadsheet-grid #tableBody > tr > th.sheet-row-number {
+  position: sticky;
+  right: 0;
+  z-index: 8;
+  width: 46px;
+  min-width: 46px;
+  height: 32px;
+  padding: 4px !important;
+  background: #f8f9fa !important;
+  color: #5f6368 !important;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 400;
+}
+#tableWrap.spreadsheet-grid #tableBody > tr:hover > th.sheet-row-number { background: #e8f0fe !important; }
+#tableWrap.spreadsheet-grid #tableBody > tr > td.sticky.right-0,
+#tableWrap.spreadsheet-grid #tableBody > tr > td.sticky.left-0 { background: #fff !important; }
+#tableWrap.spreadsheet-grid #tableBody > tr:hover > td.sticky { background: #e8f0fe !important; }
+
+#contractorsPanel table { border-collapse: collapse; background: #fff; color: #202124; }
+#contractorsPanel table thead { background: #f1f3f4 !important; color: #202124 !important; }
+#contractorsPanel table th,
+#contractorsPanel table td { border: 1px solid #dadce0 !important; color: #202124 !important; }
+#contractorsPanel table tbody tr { background: #fff !important; }
+#contractorsPanel table tbody tr:hover { background: #e8f0fe !important; }
+#summaryPanel table { border-collapse: collapse; background: #fff; color: #202124; font-family: Arial, 'Cairo', sans-serif; font-size: 13px; }
+#summaryPanel table thead { background: #f1f3f4 !important; color: #202124 !important; }
+#summaryPanel table th,
+#summaryPanel table td { border: 1px solid #dadce0 !important; color: #202124 !important; }
+#summaryPanel table tbody tr { background: #fff !important; }
+#summaryPanel table tbody tr:hover { background: #e8f0fe !important; }
+
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border-radius: 9999px;
+  border: 1px solid rgb(var(--c-slate-700) / 0.6);
+  background-color: rgb(var(--c-slate-800) / 0.7);
+  color: rgb(var(--c-slate-300));
+  cursor: pointer;
+  transition: transform .3s ease, box-shadow .3s ease, background-color .3s ease, color .3s ease;
+}
+.icon-btn svg { width: 1rem; height: 1rem; }
+.icon-btn:hover { transform: translateY(-2px); }
+.icon-btn.is-edit:hover {
+  color: rgb(var(--c-emerald-400));
+  box-shadow: 0 6px 16px rgb(var(--c-emerald-500) / 0.25);
+}
+.icon-btn.is-delete:hover {
+  color: rgb(var(--c-rose-300));
+  box-shadow: 0 6px 16px rgb(var(--c-rose-800) / 0.35);
+}
+
+@media (hover: none) {
+  .icon-btn:hover { transform: none; }
+}
+
+
+/* قواعد مساعدة أضيفت في التحديث، بعد استعادة تنسيقات الواجهة الكاملة */
+.scroll-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+.scroll-thin::-webkit-scrollbar-track { background: transparent; }
+.scroll-thin::-webkit-scrollbar-thumb { background: rgba(148,163,184,.3); border-radius: 3px; }
+.scroll-thin::-webkit-scrollbar-thumb:hover { background: rgba(148,163,184,.5); }
+.scroll-thin { scrollbar-width: thin; scrollbar-color: rgba(148,163,184,.3) transparent; }
+
+.sheet-row-number,
+.sheet-row-corner,
+.sheet-column-letter {
+  background: rgba(15,23,42,.85);
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  padding: 4px 8px;
+  border-right: 1px solid rgba(51,65,85,.5);
+  border-bottom: 1px solid rgba(51,65,85,.5);
+  user-select: none;
+}
+.sheet-row-number,
+.sheet-row-corner { position: sticky; right: 0; z-index: 15; min-width: 44px; }
+.sheet-row-corner { z-index: 25; }
+.sheet-letters-row th { background: rgba(15,23,42,.95); }
+
+#toast:not(.hidden) {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity .2s ease, transform .2s ease;
+}
+body { font-feature-settings: "kern"; }
+[disabled], .disabled { cursor: not-allowed; opacity: .55; }
+
+@media print {
+  body { background: #fff !important; }
+  #mainHeader, #sidebar, #sidebarBackdrop, #offlineBanner, #toast { display: none !important; }
+}
+
+/* تباين المؤشرات: custom Tailwind text-i1..4 لا يعتمد على theme-engine */
+#metricExpenses, #metricAdvances, #metricFunding, #metricBalance, #summaryExpenses, #summaryAdvances, #summaryFunding, #summaryBalance, #summaryWithdrawals, #summaryDebts, #contractorTotalDhara { color: #f8fafc !important; text-shadow: 0 1px 1px rgb(0 0 0 / 35%); }
+#metricsScope { color: #cbd5e1 !important; }

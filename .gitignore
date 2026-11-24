@@ -1,0 +1,17 @@
+/node_modules
+/dist
+/.wrangler
+.dev.vars
+token.txt
+deploy-token.bat
+
+# Local data exports and data-bearing JSON files
+*.xlsx
+*.xls
+*.csv
+*.json
+!package.json
+!package-lock.json
+!public/manifest.json
+!wrangler.jsonc
+!tsconfig.json
