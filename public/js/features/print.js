@@ -219,15 +219,15 @@ function receiptPrintHtml(items) {
 .rc-l3{right:calc(36 * var(--u));top:calc(560 * var(--u))}
 .rc-dots{border-top:calc(4 * var(--u)) dotted #111;height:0}
 .rc-d1{left:calc(100 * var(--u));width:calc(905 * var(--u));top:calc(448 * var(--u))}
-.rc-d2{left:calc(100 * var(--u));width:calc(905 * var(--u));top:calc(520 * var(--u))}
+.rc-d2{left:calc(100 * var(--u));width:calc(905 * var(--u));top:calc(518 * var(--u))}
 .rc-d3{left:calc(100 * var(--u));width:calc(905 * var(--u));top:calc(592 * var(--u))}
 .rc-d4{left:calc(100 * var(--u));width:calc(1065 * var(--u));top:calc(663 * var(--u))}
 .rc-value{right:calc(204 * var(--u));left:calc(100 * var(--u));text-align:right;font-weight:700;line-height:calc(30 * var(--u));white-space:nowrap;overflow:hidden}
 .rc-v1{top:calc(421 * var(--u))}
 .rc-v2{top:calc(490 * var(--u))}
-.rc-details{left:calc(93 * var(--u));width:calc(1065 * var(--u));top:calc(545 * var(--u));font-size:calc(22 * var(--u));font-weight:700;line-height:calc(71 * var(--u));text-align:right;height:calc(142 * var(--u));overflow:hidden;padding-bottom:calc(6 * var(--u))}
+.rc-details{left:calc(93 * var(--u));width:calc(1065 * var(--u));top:calc(545 * var(--u));font-size:calc(25 * var(--u));font-weight:700;line-height:calc(71 * var(--u));text-align:right;height:calc(142 * var(--u));overflow:hidden;padding-bottom:calc(6 * var(--u))}
 .rc-spacer{float:right;width:calc(168 * var(--u));height:calc(71 * var(--u))}
-.rc-sig{top:calc(764 * var(--u));width:calc(210 * var(--u));text-align:center;font-size:calc(20 * var(--u));line-height:calc(30 * var(--u))}
+.rc-sig{top:calc(764 * var(--u));width:calc(210 * var(--u));text-align:center;font-size:calc(22 * var(--u));line-height:calc(30 * var(--u))}
 .rc-sig b,.rc-sig span{display:block;font-weight:400;white-space:nowrap}
 `;
     const headers = sheetHeaders(GL);
