@@ -213,8 +213,8 @@ function receiptPrintHtml(items) {
 .rc-val{font-weight:700;font-size:calc(25 * var(--u))}
 .rc-number{right:calc(54 * var(--u));top:calc(294 * var(--u))}
 .rc-date{right:calc(41 * var(--u));top:calc(361 * var(--u))}
-.rc-label{right:calc(34 * var(--u));width:calc(190 * var(--u));text-align:right;font-size:calc(34 * var(--u));line-height:calc(44 * var(--u));white-space:nowrap}
-.rc-l1{top:calc(425 * var(--u))}
+.rc-label{right:calc(34 * var(--u));width:calc(190 * var(--u));text-align:right;font-size:calc(36 * var(--u));line-height:calc(44 * var(--u));white-space:nowrap}
+.rc-l1{top:calc(420 * var(--u))}
 .rc-l2{right:calc(16 * var(--u));top:calc(499 * var(--u))}
 .rc-l3{right:calc(36 * var(--u));top:calc(564 * var(--u))}
 .rc-dots{border-top:calc(4 * var(--u)) dotted #111;height:0}
