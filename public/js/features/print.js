@@ -84,7 +84,7 @@ function prDoc(size, css, body) {
     return '<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><title>طباعة</title>'
         + '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap">'
         + '<style>@page{size:' + size + ';margin:0}*{box-sizing:border-box}html,body{margin:0}'
-        + "body{font-family:'Cairo','Tahoma','Arial',sans-serif;color:#000;-webkit-print-color-adjust:exact;print-color-adjust:exact}"
+        + "body{font-family:Calibri,'Segoe UI',Tahoma,Arial,sans-serif;color:#000;-webkit-print-color-adjust:exact;print-color-adjust:exact}"
         + 'table{border-collapse:collapse;width:100%}.pg{page-break-after:always;break-after:page}.pg:last-child{page-break-after:auto;break-after:auto}table.wrap>thead>tr>td,table.wrap>tfoot>tr>td{height:10mm;padding:0;border:0}table.wrap>tbody>tr>td{padding:0 10mm;border:0;vertical-align:top}' + css
         + '</style></head><body>' + body.split('<section class="pg">').join('<table class="wrap pg"><thead><tr><td></td></tr></thead><tfoot><tr><td></td></tr></tfoot><tbody><tr><td>').split('</section>').join('</td></tr></tbody></table>') + '</body></html>';
 }
@@ -198,7 +198,7 @@ function buildDisbursementReceipt(item, headers) {
 
 function receiptPrintHtml(items) {
     const css = `
-.rc-page{--u:calc(197.3mm / 1194);position:relative;width:197.3mm;height:148mm;margin:0;overflow:hidden;background:#fff;page-break-after:always;break-after:page;direction:rtl;font-family:Tahoma,'Segoe UI',Arial,sans-serif;color:#0d1f35}
+.rc-page{--u:calc(197.3mm / 1194);position:relative;width:197.3mm;height:148mm;margin:0;overflow:hidden;background:#fff;page-break-after:always;break-after:page;direction:rtl;font-family:Calibri,'Segoe UI',Tahoma,Arial,sans-serif;color:#0d1f35}
 .rc-page:last-child{page-break-after:auto;break-after:auto}
 .rc-page>*{position:absolute;margin:0}
 .rc-border{inset:calc(3 * var(--u));border:calc(5 * var(--u)) solid #3a4b5c}
@@ -218,12 +218,12 @@ function receiptPrintHtml(items) {
 .rc-l2{right:calc(16 * var(--u));top:calc(490 * var(--u))}
 .rc-l3{right:calc(36 * var(--u));top:calc(560 * var(--u))}
 .rc-dots{border-top:calc(4 * var(--u)) dotted #111;height:0}
-.rc-d1{left:calc(100 * var(--u));width:calc(875 * var(--u));top:calc(458 * var(--u))}
+.rc-d1{left:calc(100 * var(--u));width:calc(875 * var(--u));top:calc(470 * var(--u))}
 .rc-d2{left:calc(100 * var(--u));width:calc(875 * var(--u));top:calc(527 * var(--u))}
 .rc-d3{left:calc(100 * var(--u));width:calc(875 * var(--u));top:calc(592 * var(--u))}
 .rc-d4{left:calc(100 * var(--u));width:calc(1065 * var(--u));top:calc(663 * var(--u))}
 .rc-value{right:calc(204 * var(--u));left:calc(100 * var(--u));text-align:right;font-weight:700;line-height:calc(30 * var(--u));white-space:nowrap;overflow:hidden}
-.rc-v1{top:calc(440 * var(--u))}
+.rc-v1{top:calc(490 * var(--u))}
 .rc-v2{top:calc(500 * var(--u))}
 .rc-details{left:calc(93 * var(--u));width:calc(1065 * var(--u));top:calc(545 * var(--u));font-size:calc(22 * var(--u));font-weight:700;line-height:calc(71 * var(--u));text-align:right;height:calc(142 * var(--u));overflow:hidden;padding-bottom:calc(6 * var(--u))}
 .rc-spacer{float:right;width:calc(168 * var(--u));height:calc(71 * var(--u))}
