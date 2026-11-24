@@ -214,9 +214,9 @@ function receiptPrintHtml(items) {
 .rc-number{right:calc(54 * var(--u));top:calc(294 * var(--u))}
 .rc-date{right:calc(41 * var(--u));top:calc(361 * var(--u))}
 .rc-label{right:calc(34 * var(--u));width:calc(190 * var(--u));text-align:right;font-size:calc(32 * var(--u));line-height:calc(44 * var(--u));white-space:nowrap}
-.rc-l1{top:calc(425 * var(--u))}
-.rc-l2{right:calc(12 * var(--u));top:calc(495 * var(--u))}
-.rc-l3{right:calc(32 * var(--u));top:calc(560 * var(--u))}
+.rc-l1{top:calc(420 * var(--u))}
+.rc-l2{right:calc(16 * var(--u));top:calc(490 * var(--u))}
+.rc-l3{right:calc(36 * var(--u));top:calc(560 * var(--u))}
 .rc-dots{border-top:calc(4 * var(--u)) dotted #111;height:0}
 .rc-d1{left:calc(100 * var(--u));width:calc(875 * var(--u));top:calc(458 * var(--u))}
 .rc-d2{left:calc(100 * var(--u));width:calc(875 * var(--u));top:calc(527 * var(--u))}
